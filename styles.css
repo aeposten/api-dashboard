@@ -1,8 +1,44 @@
+/* 
+
+font-family: 'Abril Fatface', cursive;
+font-family: 'Inter', sans-serif;
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Inter:wght@300;400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background: no-repeat center center fixed; 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: gold;
+}
+
+.dad-joke {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.75em;
+    border-radius: 1em;
+    background-color:  #355E3B;
+    font-family: 'Abril Fatface', cursive;
+}
+
+#setup {
+    text-align: center;
+}
+
+#punchline {
+    text-align: center;
 }
