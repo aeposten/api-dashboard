@@ -16,14 +16,21 @@ body {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
     background: no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Inter', sans-serif;
     color: gold;
+    text-shadow: 0.04em 0.04em .08em #474747;
+}
+
+
+#stock-price {
+    font-size: 1rem;
 }
 
 .dad-joke {
@@ -31,7 +38,6 @@ body {
     flex-direction: column;
     padding: 0.5em 0.75em;
     border-radius: 1em;
-    background-color:  #355E3B;
     font-family: 'Abril Fatface', cursive;
 }
 
