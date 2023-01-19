@@ -79,6 +79,7 @@ function setCurrentDate() {
 
 function setLocation() {
   navigator.geolocation.getCurrentPosition(renderWeather)
+  setTimeout(setLocation, 3600000);
 }
 
 async function renderWeather(position) {
@@ -94,8 +95,6 @@ async function renderWeather(position) {
   let fahrenheit = Math.floor((data.main.temp - 273) * (9/5) + 32)
 
   tempDiv.textContent = fahrenheit;
-
-  console.log(data)
 }
 
 setLocation();
