@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Amy's Dashboard",
     "version": "1.0.0",
-    "description": "Dashboard Project for practicing Javascrips",
+    "description": "Dashboard Project for practicing Javascript",
     "action": {
         "default_icon": "icon.png"
     },

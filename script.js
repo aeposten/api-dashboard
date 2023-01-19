@@ -95,7 +95,6 @@ async function renderWeather(position) {
   let fahrenheit = Math.floor((data.current.temp - 273) * (9/5) + 32)
 
   tempDiv.textContent = `${fahrenheit}º`;
-  console.log(data)
 }
 
 setLocation();
