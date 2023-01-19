@@ -85,20 +85,20 @@ function setLocation() {
 async function renderWeather(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-  const response = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}`);
+  const response = await fetch(`${WEATHER_URL}onecall?lat=${latitude}&lon=${longitude}&appid=${WEATHER_KEY}`);
   const data = await response.json();
 
   iconDiv.innerHTML = `
-    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" class="weather-icon"/>
+    <img src="http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" class="weather-icon"/>
   `
 
-  let fahrenheit = Math.floor((data.main.temp - 273) * (9/5) + 32)
+  let fahrenheit = Math.floor((data.current.temp - 273) * (9/5) + 32)
 
-  tempDiv.textContent = fahrenheit;
+  tempDiv.textContent = `${fahrenheit}º`;
+  console.log(data)
 }
 
 setLocation();
-
 setCurrentTime();
 setCurrentDate();
 fetchStockPrice();

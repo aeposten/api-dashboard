@@ -45,6 +45,7 @@ header {
 
 .weather-icon {
     width: 3em;
+    margin: -0.5em 0;
 }
 
 #stock-price {
