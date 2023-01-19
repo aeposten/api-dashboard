@@ -30,7 +30,8 @@ body {
 
 
 #stock-price {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .dad-joke {
@@ -49,9 +50,18 @@ body {
     text-align: center;
 }
 
-#current-time {
-text-align: center;
-font-size: 3rem;
-font-family: 'Abril Fatface', cursive;
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+#current-time {
+font-size: 4rem;
+font-family: 'Abril Fatface', cursive;
+}
+
+#current-date {
+    font-size: 1.5rem;
 }

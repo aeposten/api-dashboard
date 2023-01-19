@@ -9,6 +9,7 @@ const punchlineEl = document.getElementById("punchline");
 const stockPrice = document.getElementById("stock-price");
 
 const timeEl = document.getElementById("current-time");
+const dateEl = document.getElementById("current-date");
 
 async function setBodyBackground() {
   try {
@@ -55,14 +56,21 @@ async function fetchStockPrice() {
 }
 
 function setCurrentTime() {
-  const date = new Date();
-  const time = date.toLocaleTimeString();
+  const time = new Date().toLocaleTimeString();
 
   timeEl.textContent = time;
   setTimeout(setCurrentTime, 1000);
 }
 
+function setCurrentDate() {
+  const date = new Date().toLocaleDateString();
+
+  dateEl.textContent = date;
+  setTimeout(setCurrentDate, 86400000);
+}
+
 setCurrentTime();
+setCurrentDate();
 fetchStockPrice();
 setBodyBackground();
 setDadJoke();
