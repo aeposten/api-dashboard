@@ -48,3 +48,10 @@ body {
 #punchline {
     text-align: center;
 }
+
+#current-time {
+text-align: center;
+font-size: 3rem;
+font-family: 'Abril Fatface', cursive;
+
+}
