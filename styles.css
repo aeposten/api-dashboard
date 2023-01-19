@@ -29,7 +29,25 @@ body {
 }
 
 
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.weather-icon {
+    width: 3em;
+}
+
 #stock-price {
+    padding: 1em;
     font-size: 1.5rem;
     font-weight: bold;
 }

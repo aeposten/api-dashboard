@@ -1,15 +1,20 @@
 const CAT_URL = "https://api.thecatapi.com/v1/images/search";
 const DAD_JOKE_URL = "https://dad-jokes.p.rapidapi.com/joke/type/programming";
 const FIN_URL = "https://finnhub.io/api/v1/";
+const WEATHER_URL = "https://api.openweathermap.org/data/3.0/"
 
 const FIN_KEY = "cf48klaad3i94dsnolugcf48klaad3i94dsnolv0";
+const WEATHER_KEY = "ae4264ba6c3b182846c5a48feb87fff8"
 
 const setupEl = document.getElementById("setup");
 const punchlineEl = document.getElementById("punchline");
 const stockPrice = document.getElementById("stock-price");
+const iconDiv = document.getElementById("weather-icon")
+const tempDiv = document.getElementById("current-temp")
 
 const timeEl = document.getElementById("current-time");
 const dateEl = document.getElementById("current-date");
+
 
 async function setBodyBackground() {
   try {
@@ -53,10 +58,13 @@ async function fetchStockPrice() {
   const currentPrice = data.c;
 
   stockPrice.textContent = `APPL: $ ${currentPrice}`;
+  setTimeout(fetchStockPrice, 3600000);
 }
 
 function setCurrentTime() {
-  const time = new Date().toLocaleTimeString();
+  const time = new Date().toLocaleTimeString("en-us", {
+    timeStyle: "medium",
+  });
 
   timeEl.textContent = time;
   setTimeout(setCurrentTime, 1000);
@@ -68,6 +76,29 @@ function setCurrentDate() {
   dateEl.textContent = date;
   setTimeout(setCurrentDate, 86400000);
 }
+
+function setLocation() {
+  navigator.geolocation.getCurrentPosition(renderWeather)
+}
+
+async function renderWeather(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const response = await fetch(`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${latitude}&lon=${longitude}`);
+  const data = await response.json();
+
+  iconDiv.innerHTML = `
+    <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" class="weather-icon"/>
+  `
+
+  let fahrenheit = Math.floor((data.main.temp - 273) * (9/5) + 32)
+
+  tempDiv.textContent = fahrenheit;
+
+  console.log(data)
+}
+
+setLocation();
 
 setCurrentTime();
 setCurrentDate();
